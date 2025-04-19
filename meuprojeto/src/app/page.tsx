@@ -11,12 +11,23 @@ interface DataProps {
 }
 
 
-async function getData(){
-  // http://api.github.com/users/WillianRRP/repos
-  const res = await fetch("http://api.github.com/users/WillianRRP/repos")
-    
-return res.json()
+async function delay(url: string, delay: number) {
+  await new Promise((resolve) => setTimeout(resolve, delay));
+  const res = await fetch(url);
+  return res.json();
+}
 
+//async function getData(){
+//  // http://api.github.com/users/WillianRRP/repos
+//  const res = await fetch("http://api.github.com/users/WillianRRP/repos")
+//    
+//return res.json()
+//
+//}
+
+async function getData(){
+  const data = await delay("http://api.github.com/users/WillianRRP/repos", 2000)
+  return data
 }
 
 
