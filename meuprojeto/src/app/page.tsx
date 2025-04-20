@@ -41,7 +41,7 @@ export default async function Home(){
 
   return(
     <main>
-      <h1>oi</h1>
+      <h1>pagina do site</h1>
       <span>seja bem vindo</span>
       <br/>
 
