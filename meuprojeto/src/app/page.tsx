@@ -1,3 +1,7 @@
+import{OwnerRepo} from "@/components/OwnerRepo/"
+
+
+
 interface DataProps {
   id: number;
   name: string;
@@ -26,7 +30,7 @@ async function delay(url: string, delay: number) {
 //}
 
 async function getData(){
-  const data = await delay("http://api.github.com/users/WillianRRP/repos", 2000)
+  const data = await delay("http://api.github.com/users/WillianRRP/repos", 0)
   return data
 }
 
@@ -45,7 +49,11 @@ export default async function Home(){
       {data.map((item) => (
         <div key={item.id}>
           <strong>Repositório:</strong> <a>{item.name}</a>
-          <br/><br/>
+          <br/>
+          <OwnerRepo avatar_url={item.owner.avatar_url}
+          name={item.owner.login}/>
+
+          <br/>
         </div>  
 
       ))}
